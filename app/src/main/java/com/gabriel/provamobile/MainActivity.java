@@ -24,6 +24,20 @@ public class MainActivity extends AppCompatActivity {
     private EditText etNome, etCodigo, etPreco, etQuantidade;
     private ProductDao productDao;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Campos
+        etNome = findViewById(R.id.etNome);
+        etCodigo = findViewById(R.id.etCodigo);
+        etPreco = findViewById(R.id.etPreco);
+        etQuantidade = findViewById(R.id.etQuantidade);
+
+        // Botões
+        Button btnSalvar = findViewById(R.id.btnSalvar);
+        Button btnLista = findViewById(R.id.btnLista);
 
     }
 }
