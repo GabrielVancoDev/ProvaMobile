@@ -7,11 +7,19 @@ import androidx.room.PrimaryKey;
 import androidx.room.Query;
 
 import java.util.List;
+
+//  Entidades
 @Entity
 public class Produto {
 
-    @PrimaryKey
+//Auto gera as chaves primárias
+    @PrimaryKey(autoGenerate = true)
+    public int id;
 
+    public String nome;
+    public String codigo;
+    public double preco;
+    public int quantidade;
 
 
 }
