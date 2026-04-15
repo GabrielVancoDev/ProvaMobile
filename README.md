@@ -38,21 +38,21 @@ Este projeto consiste em um aplicativo Android desenvolvido utilizando **Java** 
 
 O aplicativo utiliza o **Room Database** para armazenamento local.
 
-## 📱 Telas do Aplicativo
+##  Telas do Aplicativo
 
-### 🟢 Tela 1: Cadastro (MainActivity)
+###  Tela 1: Cadastro (MainActivity)
 - Formulário de entrada
 - Validação de dados
 - Botão para salvar produto
 - Botão para visualizar lista
 
-### 🔵 Tela 2: Listagem (ReportActivity)
+###  Tela 2: Listagem (ReportActivity)
 - RecyclerView com os produtos cadastrados
 - Botão de retorno
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - Java
 - Android Studio
