@@ -66,6 +66,36 @@ public class MainActivity extends AppCompatActivity {
             String precoStr = etPreco.getText().toString().trim();
             String quantidadeStr = etQuantidade.getText().toString().trim();
 
+// Validações:
+//  Campos Vazios
+    if (nome.isEmpty() || codigo.isEmpty() | precoStr.isEmpty() || quantidade.isEmpty()){
+        Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+        return;
+    }
+            // Preço positivo até duas casas
+            if (!precoStr.matches("^\\d+(\\.\\d{1,2})?$")) {
+                Toast.makeText(this, "Preço inválido! Use até 2 casas decimais.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            double preco = Double.parseDouble(precoStr);
+            if (preco <= 0) {
+                Toast.makeText(this, "Preço deve ser positivo!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Números Inteiros Positivos
+            if (!quantidadeStr.matches("^\\d+$")) {
+                Toast.makeText(this, "Quantidade inválida!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            int quantidade = Integer.parseInt(quantidadeStr);
+            if (quantidade <= 0) {
+                Toast.makeText(this, "Quantidade deve ser positiva!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
 
 
         });
