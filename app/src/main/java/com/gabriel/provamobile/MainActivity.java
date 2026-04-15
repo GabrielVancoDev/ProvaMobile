@@ -47,13 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 "product-db"
         ).allowMainThreadQueries().build();
 
-        // Banco de dados
-        ProductDatabase db = Room.databaseBuilder(
-                getApplicationContext(),
-                ProductDatabase.class,
-                "product-db"
-        ).allowMainThreadQueries().build();
-
         productDao = db.productDao();
 
 //        Botão de Salvar Produtos
@@ -89,16 +82,32 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Quantidade inválida!", Toast.LENGTH_SHORT).show();
                 return;
             }
-            int quantidade = Integer.parseInt(quantidadeStr);
-            if (quantidade <= 0) {
-                Toast.makeText(this, "Quantidade deve ser positiva!", Toast.LENGTH_SHORT).show();
-                return;
-            }
 
+            //  Criar produto
+            Product product = new Product();
+            product.nome = nome;
+            product.codigo = codigo;
+            product.preco = preco;
+            product.quantidade = quantidade;
 
+            //  Salvar no banco
+            productDao.inserir(product);
 
+            Log.d("MainActivity", "Produto salvo com sucesso");
 
+            Toast.makeText(this, "Produto cadastrado!", Toast.LENGTH_SHORT).show();
+
+            // limpar campos
+            etNome.setText("");
+            etCodigo.setText("");
+            etPreco.setText("");
+            etQuantidade.setText("");
         });
+
+        // BOTÃO LISTA
+        btnLista.setOnClickListener(v ->
+                startActivity(new Intent(MainActivity.this, ListaActivity.class))
+        );
     }
 
-}
+    }
